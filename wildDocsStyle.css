@@ -9,16 +9,28 @@
 /* Body styling */
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: url('./animalImg/sand.jpg') no-repeat center center fixed;
+    background: linear-gradient(100deg, #1f4356,#18374F); /* Background gradient */
+}
+
+section{
+    background: url('./habitat/sand.jpg');
     background-size: cover;
-    backdrop-filter: blur(5px);
-    
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 650px;
+    margin: 50px 0 10px 0;
+}
+
+.ocean{
+    background: url('./habitat/ocean.jpg');
+    background-size: cover;
+    backdrop-filter: blur(10px);
 }
 
 /* Header and navigation bar styling */
 header {
     padding: 20px 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px  1px rgb(248, 248, 248);
 }
 
 /* Navigation layout */
@@ -34,7 +46,6 @@ header {
     font-size: 2.5rem;
     font-weight: bold;
     color: #c0392b;
-
 }
 
 .nav-links{
@@ -51,61 +62,67 @@ header {
 }
 
 .nav-links a:hover{
-    color: black;
+    color:#c0392b;
 }
+
 /* Section and container styling */
 .description{
     text-align: center;
-    margin: 40px 0 40px 0;
+    background: none;
+    width: 100%;
+    height: 300px;
 }
 
 .description h1{
+    color: #c0392b;
     font-size: 50px;
 }
 
 #feature{
-    font-size: 50px;
-}
-
-.container{
-    display: flex;
-    margin-top: 50px;
-}
-
-/* Category label styling */
-.category-label{
-    display: inline;
-    width: 800px;
+    font-size: 60px;
+    color: #c0392b;
+    position: absolute;
     text-align: center;
-    padding: 20px;
-    align-self:center ;
-    justify-items: flex-start;
+    bottom: 1px;
+    width: 100%;
 }
 
-.category-label h2{
+.carousel-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-header{
+    position: absolute;
     font-size: 110px;
     color: white;
+    top: 130px;
+    left: 20px;
 }
 
-.category-label p{
-    font-size: 14px;
-
-}
-
-/* Carousel container styling */
-.carousel-container {
+.carousel-list {
     position: relative;
     width: 800px;
     height: 500px;
     display: flex;
     overflow: hidden;
-    border: 5px  none;
-    padding: 10px;
+    justify-content: center;
+    align-items: center;
     list-style: none;
+    margin-top: 50px;
+}
+.carousel-container div p{
+    font-size:20px ;
+    width: 650px;
 }
 
 /* Carousel card base styling */
-.carousel-card {
+.mammal-card ,
+.fish-card {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -121,7 +138,7 @@ header {
 }
 
 /* Carousel card image styling */
-.carousel-card img {
+img {
     width: 300px;
     height: 400px;
     border-radius: 12px;
@@ -130,7 +147,8 @@ header {
 }
 
 /* Active card in center */
-.carousel-card.active {
+.mammal-card.active,
+.fish-card.active{
     transform: translateX(-50%) translateY(-50%) scale(1.1);
     opacity: 1;
     z-index: 2;
@@ -138,21 +156,24 @@ header {
 }
 
 /* Previous card to the left */
-.carousel-card.prev {
+.mammal-card.prev,
+.fish-card.prev{
     transform: translateX(-150%) translateY(-50%) scale(0.9);
     opacity: 0.7;
     z-index: 1;
 }
 
 /* Next card to the right */
-.carousel-card.next {
+.mammal-card.next,
+.fish-card.next{
     transform: translateX(50%) translateY(-50%) scale(0.9);
     opacity: 0.7;
     z-index: 1;
 }
 
 /* Cards not visible (far left/right) */
-.carousel-card.offscreen {
+.mammal-card.offscreen,
+.fish-card.offscreen{
     transform: translateX(300%) translateY(-50%) scale(0.7);
     opacity: 0;
     z-index: 0;
